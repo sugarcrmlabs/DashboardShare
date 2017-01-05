@@ -1,0 +1,142 @@
+<style>
+    .group-title {
+        font-weight: bold;
+    }
+
+    .sub-group {
+        margin-left: 25px;
+    }
+</style>
+<div class="main-pane span12" style="margin-left: 0px">
+    <div class="headerpane">
+        <h1>
+            <span class="record-cell" data-type="label" data-name="title" style="max-width: 383px;">
+                <span class="table-cell-wrapper">
+                    <span class="index" data-fieldname="title">
+                        <span sfuuid="1005" class="list-headerpane">
+                            <div class="ellipsis_inline" data-placement="bottom" title="">
+                                Share Your "{{str dashboardName}}" Dashboard
+                            </div>
+                        </span>
+                    </span>
+                </span>
+            </span>
+
+            <div class="btn-toolbar pull-right">
+            <span sfuuid="1042" class="create" tabindex="-1">
+                <a class="btn btn-invisible btn-link" href="javascript:void(0);" track="click:cancel_button"
+                   name="cancel_button">Cancel</a>
+            </span>
+            <span sfuuid="1044" class="create" tabindex="-1">
+                <a class="btn btn-primary" href="javascript:void(0);" track="click:save_button"
+                   name="save_button">Save</a>
+            </span>
+            </div>
+        </h1>
+    </div>
+    <h4 class="pull-left">
+        Allow changes for this dashboard
+    </h4>
+
+    <div class="pull-left">
+        <input type="checkbox" value="allow_edit" name="allow_edit" class="allow-edit" style="margin-top: 10px; margin-left: 15px;">
+    </div>
+    <div class="record tab-layout">
+        <div class="row-fluid record-panel" data-panelname="roles">
+            <div class="row-fluid record-panel-header panel-inactive" tabindex="-1">
+                <h4 class="pull-left">
+                    Roles
+                </h4>
+
+                <div class="pull-right">
+                    <button class="btn btn-invisible record-panel-arrow">
+                        <i class="fa fa-chevron-down" rel="tooltip" data-container="body" data-title="Toggle Visibility"
+                           data-original-title="" title=""></i>
+                    </button>
+                </div>
+            </div>
+            <div class="row-fluid record-panel-content " style="display: none;">
+                <div class="row-fluid panel_body roles">
+                    {{#each user_information.roles}}
+                        <div class="group-container">
+                            <input type="checkbox" class="group-control"/> <span class="group-title">{{@key}}</span>
+
+                            <div class="sub-group">
+                                {{#each this}}
+                                    <div>
+                                        <input class="single-control" type="checkbox" value="{{this.id}}"
+                                               name="user_id[]"/>
+                                        <span>{{this.name}}</span>
+                                    </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid record-panel" data-panelname="teams">
+            <div class="row-fluid record-panel-header panel-inactive" tabindex="-1">
+                <h4 class="pull-left">
+                    Teams
+                </h4>
+
+                <div class="pull-right">
+                    <button class="btn btn-invisible record-panel-arrow">
+                        <i class="fa fa-chevron-down" rel="tooltip" data-container="body" data-title="Toggle Visibility"
+                           data-original-title="" title=""></i>
+                    </button>
+                </div>
+            </div>
+            <div class="row-fluid record-panel-content " style="display: none;">
+                <div class="row-fluid panel_body teams">
+                    {{#each user_information.teams}}
+                        <div class="group-container">
+                            <input type="checkbox" class="group-control"/> <span class="group-title">{{@key}}</span>
+
+                            <div class="sub-group">
+                                {{#each this}}
+                                    <div>
+                                        <input class="single-control" type="checkbox" value="{{this.id}}"
+                                               name="user_id[]"/>
+                                        <span>{{this.name}}</span>
+                                    </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid record-panel" data-panelname="users">
+            <div class="row-fluid record-panel-header panel-inactive" tabindex="-1">
+                <h4 class="pull-left">
+                    Users
+                </h4>
+
+                <div class="pull-right">
+                    <button class="btn btn-invisible record-panel-arrow">
+                        <i class="fa fa-chevron-down" rel="tooltip" data-container="body" data-title="Toggle Visibility"
+                           data-original-title="" title=""></i>
+                    </button>
+                </div>
+            </div>
+            <div class="row-fluid record-panel-content " style="display: none;">
+                <div class="row-fluid panel_body users">
+                    <div class="group-container">
+                        <input type="checkbox" class="group-control"/> <span class="group-title">All</span>
+
+                        <div class="sub-group">
+                            {{#each user_information.users}}
+                                <div>
+                                    <input class="single-control" type="checkbox" value="{{this.id}}" name="user_id[]"/>
+                                    <span>{{this.name}}</span>
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
