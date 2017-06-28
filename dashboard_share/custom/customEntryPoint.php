@@ -1,6 +1,6 @@
 <?php
 if (!empty($_GET['dashId'])) {
-    $updateQuery = "UPDATE dashboards SET deleted = 0 WHERE id = '" . $_GET['dashId'] . "'";
+    $updateQuery = "UPDATE dashboards SET deleted = 0 WHERE id = '" . $GLOBALS['db']->quote($_GET['dashId']) . "'";
 
     if ($GLOBALS['db']->query($updateQuery)) {
         echo "The dashboard was successfully accepted.";
